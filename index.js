@@ -1,14 +1,68 @@
     // Data: at least 6 cards
     const services = [
-      {id:1,icon:'🚨',name:'National Emergency Number',eng:'National Emergency',number:'999',category:'All'},
-      {id:2,icon:'👮',name:'Police Helpline Number',eng:'Police',number:'999',category:'Police'},
-      {id:3,icon:'🚒',name:'Fire Service Number',eng:'Fire Service',number:'999',category:'Fire'},
-      {id:4,icon:'🚑',name:'Ambulance Service',eng:'Ambulance',number:'1994-999999',category:'Health'},
-      {id:5,icon:'👩‍👧',name:'Women & Child Helpline',eng:'Women & Child Helpline',number:'109',category:'Help'},
-      {id:6,icon:'📞',name:'Anti-Corruption Helpline',eng:'Anti-Corruption',number:'106',category:'Govt'},
-      {id:7,icon:'⚡',name:'Electricity Helpline',eng:'Electricity Outage',number:'16216',category:'Electricity'},
-      {id:8,icon:'🏥',name:'Brac Helpline',eng:'Brac',number:'16445',category:'NGO'},
-      {id:9,icon:'🚆',name:'Bangladesh Railway Helpline',eng:'Railway',number:'163',category:'Travel'}
+      {id:1,
+         icon: '<img src="B12-A5-Emergency-Hotline/emergency.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'National Emergency Number',
+        eng:'National Emergency',
+        number:'999',
+        category:'All'
+      },
+      {id:2,
+       icon: '<img src="B12-A5-Emergency-Hotline/police.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'Police Helpline Number',
+        eng:'Police',
+        number:'999',
+        category:'Police'
+      },
+      {id:3,
+         icon: '<img src="B12-A5-Emergency-Hotline/fire-service.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'Fire Service Number',
+        eng:'Fire Service',
+        number:'999',
+        category:'Fire'
+      },
+      {id:4,
+       icon: '<img src="B12-A5-Emergency-Hotline/ambulance.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'Ambulance Service',
+        eng:'Ambulance',
+        number:'1994-999999',
+        category:'Health'
+      },
+      {id:5,
+         icon: '<img src="B12-A5-Emergency-Hotline/emergency.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'Women & Child Helpline',
+        eng:'Women & Child Helpline',
+        number:'109',
+        category:'Help'
+      },
+      {id:6,
+         icon: '<img src="B12-A5-Emergency-Hotline/emergency.png" alt="Police Icon" style="width:15px;height:12px;">',
+      name:'Anti-Corruption Helpline',
+      eng:'Anti-Corruption',
+      number:'106',
+      category:'Govt'
+    },
+      {id:7,
+         icon: '<img src="B12-A5-Emergency-Hotline/emergency.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'Electricity Helpline',
+        eng:'Electricity Outage',
+        number:'16216',
+        category:'Electricity'
+      },
+      {id:8,
+         icon: '<img src="B12-A5-Emergency-Hotline/brac.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'Brac Helpline',
+        eng:'Brac',
+        number:'16445',
+        category:'NGO'
+      },
+      {id:9,
+        icon: '<img src="B12-A5-Emergency-Hotline/Bangladesh-Railway.png" alt="Police Icon" style="width:15px;height:12px;">',
+        name:'Bangladesh Railway Helpline',
+        eng:'Railway',
+        number:'163',
+        category:'Travel'
+      }
     ];
 
     // State
@@ -33,14 +87,14 @@
         card.dataset.id = s.id;
         card.innerHTML = `
           <div class="icon">${s.icon}</div>
-          <button class="heart" aria-label="like">💗</button>
+          <button class="heart" aria-label="like"> <img src="B12-A5-Emergency-Hotline/heart.png" alt="heart Icon" style="width:24px;height:24px;"></button>
           <h3>${s.name}</h3>
           <p class="subtitle">${s.eng}</p>
           <div class="number">${s.number}</div>
           <div class="badge">${s.category}</div>
           <div class="actions">
-            <button class="btn copy" data-number="${s.number}">📋 Copy</button>
-            <button class="btn call" data-number="${s.number}" data-name="${s.name}">📞 Call</button>
+            <button class="btn copy" data-number="${s.number}"><i class="fa-solid fa-copy"></i> Copy</button>
+            <button class="btn call" data-number="${s.number}" data-name="${s.name}"><i class="fa-solid fa-phone"></i>Call</button>
           </div>
         `;
         cardsEl.appendChild(card);
@@ -93,10 +147,14 @@
           alert('Not enough coins to make a call. Each call costs 20 coins.');
           return;
         }
+
         // confirm/show alert
+
         alert('Calling '+name+' — '+number);
         coinCount -= 20; updateCounters();
+
         // add to history with timestamp
+
         const now = new Date();
         const timeStr = now.toLocaleTimeString();
         callHistory.unshift({name,number,time:timeStr});

@@ -1,14 +1,4 @@
- 
-    :root{
-      --green-700:#085e3d;
-      --green-500:#10b981;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --bg:#f3faf6;
-      --accent:#ecfdf5;
-      --pill:#eef2ff;
-      --danger:#ef4444;
-    }
+
     *{
         box-sizing:border-box
     }
@@ -152,11 +142,11 @@
         margin:6px 0}
     .badge{
         display:inline-block;
-        background:var(--pill);
+        background:#eef2ff;
         padding:6px 10px;
         border-radius:999px;
         font-size:12px;
-        color:var(--muted);
+        color:#6b7280;
         margin-bottom:10px
     }
 
@@ -175,16 +165,18 @@
         gap:8px;
         cursor:pointer}
     .btn.call{
-        background:var(--green-500);
+        background:#10b981;
         color:white;
-        border:none}
-    .heart{position:absolute;
+        border:none;
+    }
+    .heart{
+        position:absolute;
         right:12px;
         top:12px;
         border-radius:999px;
         padding:6px;
         cursor:pointer;
-        color:var(--muted)
+        color:#6b7280;
     }
 
     /* Right sidebar - history */
@@ -199,8 +191,9 @@
     .history-header{
         display:flex;
         align-items:center;
-        justify-content:space-between}
-        .history-header strong{
+        justify-content:space-between;
+    }
+    .history-header strong{
             padding: 40px;
         }
 
@@ -233,7 +226,7 @@
 
     /* small stuff */
     .muted{
-        color:var(--muted)
+        color:#6b7280;
     }
     .center{
         text-align:center
@@ -241,15 +234,31 @@
 
     /* Responsive */
     @media (max-width:1000px){
-      .cards{grid-template-columns:repeat(2,1fr)}
-      .main{grid-template-columns:1fr 300px}
+      .cards{
+        grid-template-columns:repeat(2,1fr)
+    }
+      .main{
+        grid-template-columns:1fr 300px
+    }
     }
     @media (max-width:760px){
-      .container{padding:0 12px}
-      .main{grid-template-columns:1fr}
-      .history{order:2}
-      .cards{grid-template-columns:1fr}
-      nav.topbar{flex-direction:column;gap:10px;align-items:center}
+      .container{
+        padding:0 12px
+    }
+      .main{
+        grid-template-columns:1fr
+    }
+      .history{
+        order:2
+    }
+      .cards{
+        grid-template-columns:1fr
+    }
+      nav.topbar{
+        flex-direction:column;
+        gap:10px;
+        align-items:center
+    }
     }
 
     /* tiny helper */
