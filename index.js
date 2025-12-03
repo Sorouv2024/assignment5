@@ -1,4 +1,4 @@
-    // Data: at least 6 cards
+    // Data: at least 9 cards
     const services = [
       {id:1,
          icon: '<img src="B12-A5-Emergency-Hotline/assets/emergency.png" alt="Police Icon" style="width:30px;height:30px;">',
@@ -66,6 +66,7 @@
     ];
 
     // State
+
     let heartCount = 0;
     let coinCount = 100;
     let copyCount = 0;
@@ -80,7 +81,9 @@
 
     function renderCards(){
       cardsEl.innerHTML = '';
-      // show minimum 6 cards (we have 9)
+
+      // show minimum 9 cards
+
       services.forEach(s=>{
         const card = document.createElement('article');
         card.className = 'card';
@@ -102,10 +105,12 @@
     }
 
     // Initial render
+
     renderCards();
     updateCounters();
 
     // Event delegation for card buttons and heart
+
     cardsEl.addEventListener('click', async (e)=>{
       const callBtn = e.target.closest('.call');
       const copyBtn = e.target.closest('.copy');
@@ -124,14 +129,18 @@
 
       if(copyBtn){
         const number = copyBtn.dataset.number;
+
         // copy to clipboard
+
         try{
           await navigator.clipboard.writeText(number);
           copyCount++;
           updateCounters();
           alert('Number copied: '+number);
         }catch(err){
+
           // fallback
+
           const ta = document.createElement('textarea');
           ta.value = number;document.body.appendChild(ta);ta.select();
           try{document.execCommand('copy');copyCount++;updateCounters();alert('Number copied: '+number);}catch(e){alert('Copy failed')}
@@ -143,7 +152,9 @@
       if(callBtn){
         const number = callBtn.dataset.number;
         const name = callBtn.dataset.name;
+
         // check coins
+
         if(coinCount < 20){
           alert('Not enough coins to make a call. Each call costs 20 coins.');
           return;
@@ -189,6 +200,7 @@
     }
 
     // Clear history
+    
     clearHistoryBtn.addEventListener('click', ()=>{
       callHistory = [];
       renderHistory();
